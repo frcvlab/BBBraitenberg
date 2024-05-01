@@ -6,6 +6,8 @@ BBbraitenros: Behavior-based Braitenros
 An open extension of the braitenros python package to allow some behavior-based functionality
 November 2023 (v4)
 
+Prereq: ROS1 desktop installed. Must include Gazebo. Turtlebot3 packages installed. (https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
+
 1.0 Overview 
 
 The braitenros python package was designed to allow a user to specify Braitenberg vehicles (Braitenberg 1986) and have them execute in ROS on a Turtlebot3 (T3) robot or its Gazebo simulation. The laser range finder on the T3 is used to simulate contact sensors on the left and right, front and back of the platform. The camera is used to simulate left and right front light sensors. Left and right motor input commands are used to generate the ROS linear and angular velocities. Positive and negative connections (based on some empirically determined constants) are supported. 
