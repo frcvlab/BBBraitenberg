@@ -27,7 +27,7 @@ One design objective of braitenros was to allow students with little programming
 **Figure 1: Braitenros code (a) and Braitenberg diagram (b) for Vehicle 1 (Braitenberg 1986).**
 
 A wide range of interesting taxis and kinesis like behaviors can be built using only this framework, including target tracking, wall following, obstacle avoidance and combinations of these (a vehicle is not limited to one set of connections). 
-However, without the ability to add more instructions, a user will run into limitations after a few experiments. For this reason, the braitenros package was extended to include some features of Behavior Based programming (Mataric 1998). The disadvantage of the extension is that it requires a greater comfort level with specifying instructions for the robot in a programming language. Nonetheless, the extension does not require knowledge of loops or conditionals, and function definitions and calls are stylized and minimized. 
+However, without the ability to add more instructions, a user will run into limitations after a few experiments. For this reason, the braitenros package was extended to include some features of Behavior Based programming (Arkin 1998). The disadvantage of the extension is that it requires a greater comfort level with specifying instructions for the robot in a programming language. Nonetheless, the extension does not require knowledge of loops or conditionals, and function definitions and calls are stylized and minimized. 
 
 While the extension does not require any great exposure to computer programming, it nonetheless opens the package for those who do have this background and they are free to make the behavior-based modules as complex as they wish.
 The remainder of this document is structure as follows. Section 2 describes how to specify a behavior and how to begin carrying out behaviors on the vehicle. Section 3 describes how behaviors can aggregate their output to the robot: two modes are supported – summing of effects and priority ordering of effects. Behaviors can access global state information and Section 4 describes this. All behaviors can access all sensory inputs and Section 5 presents a list of all the sensory input available to behaviors.
@@ -104,12 +104,12 @@ There are multiple contact sensors, all calculated from the laser range data. Th
 
 4.2 Left and Right, Front and Back Contact sensors
 
-For a vehicle v, the touch sensors v.lf_touch, v.lb_touch, v.rb_touch and v.rf_touch are set to the target distance or cleared to 0 based on whether any laser range reading in a quadrant is closer than v.tooClose as shown in Figure 7.  
+For a vehicle v, the touch sensors v.lf_touch, v.lb_touch, v.rb_touch and v.rf_touch are set to the target distance or cleared to 0 based on whether any laser range reading in a quadrant is closer than v.tooClose as shown in Figure 9.  
 
 
 ![image](https://github.com/frcvlab/BBBraitenberg/assets/19497095/fed852c7-14fe-4cf3-80bb-003a7f569391)
 
-**Figure 7: Mapping touch sensors to the laser range data. The dotted circle around the T3 robot represents the 360 laser range readings (on per degree). **
+**Figure 9: Mapping touch sensors to the laser range data. The dotted circle around the T3 robot represents the 360 laser range readings (on per degree).**
 
 There is a second set of proximity detection sensors which are set when a target is somewhere around the robot but not too close (as determined by the value of v.tooClose). There are v.lf_detect, v.lb_detect, v.rb_detect and v.rf_detect are set to 1 or cleared to 0 based on whether any laser range reading in a quadrant is in view but not yet too close.
 
@@ -185,6 +185,7 @@ The v1.addBehavior() command adds bored as the highest priority behavior – so 
 The BBbraitenros package will support multiple vehicles moving simultaneously. For simulation, the correct Gazebo launch file must have been used, starting the number of robots that are to be used. For physical robots, the correct number of robots needs to have been started with rosmaster running on the computer that BBbraitenros will run on. 
 
 The br.Braitenros command must be called to create each vehicle. For example, in Figure 7 below two vehicles are created. The same behavior is added to each vehicle. Separate behaviors, or any mix of behavior, can be added to each vehicle in general. 
+
 To start the collection of vehicles, the br.multipleBehave command must be used. The argument for this command is the list of vehicles that you want to start simultaneously. The vehicles will activate the behaviors and run until a “^C” command is used to interrupt and stop all vehicles. 
 The br.multiplePlotPosition command can be used to show the positions of every vehicle on the same graph. 
 
@@ -258,4 +259,7 @@ When there are multiple vehicles, it is sometimes useful to know from which vehi
 References
 
 (Braitenberg 1986) Braitenberg, V., Vehicles: Experiments in Synthetic Psychology, MIT Press Feb 1986 ISBN: 9780262521123
-(Mataric 1998) Mataric, M., Behavior-based Robotics as a tool for synthesis of artificial behavior and analysis of natural behavior. Trends in Cognitive Science V2, 
+
+(Arkin 1998) Behavior-based Robotics,  MIT Press
+
+(Mataric 1998) Mataric, M., Behavior-based Robotics as a tool for synthesis of artificial behavior and analysis of natural behavior. Trends in Cognitive Science V2
