@@ -1,26 +1,30 @@
 # BBBraitenberg
 ROS wrapper that support Braitenberg like connections and also some Behavior-based programming constructs
+
+
 BBbraitenros: Behavior-based Braitenros
 An open extension of the braitenros python package to allow some behavior-based functionality
 November 2023 (v4)
 
 1.0 Overview 
+
 The braitenros python package was designed to allow a user to specify Braitenberg vehicles (Braitenberg 1986) and have them execute in ROS on a Turtlebot3 (T3) robot or its Gazebo simulation. The laser range finder on the T3 is used to simulate contact sensors on the left and right, front and back of the platform. The camera is used to simulate left and right front light sensors. Left and right motor input commands are used to generate the ROS linear and angular velocities. Positive and negative connections (based on some empirically determined constants) are supported. 
 One design objective of braitenros was to allow students with little programming exposure to be able to specify Braitenberg vehicles. Figure 1 shows the python code necessary to define a Braitenberg vehicle with positive contralateral connections of the light sensors to the motors. Clearly it still requires some amount of Python syntax: import, assignment, dot notation, functions and function arguments. Assignment, function and function arguments are likely intuitive for a student with prior math experience, leaving just the import and dot notation to be assimilated. 
 
-import braitenrosT3 as br
-
-v1=br.Braitenros()
-
-v1.connect( v1.vleft_connect,    v1.rf_light_connect )
-v1.connect( v1.vright_connect,  v1.lf_light_connect )
-
-v1.behave()
+                import braitenrosT3 as br
+                
+                v1=br.Braitenros()
+                
+                v1.connect( v1.vleft_connect,    v1.rf_light_connect )
+                v1.connect( v1.vright_connect,  v1.lf_light_connect )
+                
+                v1.behave()
 
 (a)	 
+
 ![image](https://github.com/frcvlab/BBBraitenberg/assets/19497095/3aea5a95-b168-4fa4-8d6f-e10868f22b08)
-(b)
-Figure 1: Braitenros code (a) and Braitenberg diagram (b) for Vehicle 1 (Braitenberg 1986).
+
+**Figure 1: Braitenros code (a) and Braitenberg diagram (b) for Vehicle 1 (Braitenberg 1986).**
 
 A wide range of interesting taxis and kinesis like behaviors can be built using only this framework, including target tracking, wall following, obstacle avoidance and combinations of these (a vehicle is not limited to one set of connections). 
 However, without the ability to add more instructions, a user will run into limitations after a few experiments. For this reason, the braitenros package was extended to include some features of Behavior Based programming (Mataric 1998). The disadvantage of the extension is that it requires a greater comfort level with specifying instructions for the robot in a programming language. Nonetheless, the extension does not require knowledge of loops or conditionals, and function definitions and calls are stylized and minimized. 
