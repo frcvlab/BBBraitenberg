@@ -1,5 +1,5 @@
 # BBBraitenberg
-ROS wrapper that support Braitenberg like connections and also some Behavior-based programming constructs
+Python/ROS wrapper that supports Braitenberg like connections and also some Behavior-based programming constructs
 
 
 BBbraitenros: Behavior-based Braitenros
