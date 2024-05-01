@@ -40,8 +40,8 @@ The remainder of this document is structure as follows. Section 2 describes how 
 2.0 How to specify a behavior
 
 A behavior is specified as a python function. (Don’t worry if you don’t know python or what a function is in a programming language). The syntax is shown in Figure 2 below.
-#a wander behavior
-    
+
+        #a wander behavior
         def B1(v1):    # must include this syntax
         
             v1.vright = v1.random()   # use 'equal' rather than connect
@@ -57,8 +57,8 @@ After this first line of the behavior definition, all the following lines in the
 The final line in every behavior is the return line. The return line will say whether the behavior thinks that it has been ‘released’ (in the sense of the Innate Releasing Mechanism of Ethology). Figure 2 shows a return in which the behavior is released. This is not so important for this behavior, but it will be very important in later sections.
 
 Figure 3 shows everything that must be written into a file (called for example BB1.py – the file names need to end in .py) for this behavior to be carried out. The first step is to import the package, as we did for braitenros. The second step is to create the vehicle, v1=br.Braitenros(). Note that there is an optional argument used here in Figure 3: If we specify the argument simFlag=True between the parenthesis, this tells braitenros that we are going to run a Gazebo simulation and not use the actual T3 robot.
-          Import BbbraitenrosT3 as br
           
+          Import BbbraitenrosT3 as br
           v1 = br.Braitenros(simFlag=True) # simFlag=True for Gazebo, omit for T3
           
           # a wander behavior
