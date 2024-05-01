@@ -6,6 +6,9 @@ BBbraitenros: Behavior-based Braitenros
 An open extension of the braitenros python package to allow some behavior-based functionality
 November 2023 (v4)
 
+Fordham Robotics and Computer Vision Lab. D. Lyons. 
+You can use and modify this software (at your own risk) but please attribute/cite it.
+
 Prereq: ROS1 desktop installed. Must include Gazebo. Turtlebot3 packages installed. (https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
 
 1.0 Overview 
